@@ -655,7 +655,7 @@ footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--s
       <form id="joinForm" novalidate>
         <div class="form__head">
           <h3>留下你的位置</h3>
-          <p>填寫後我們會將你的意向整理成一段文字，你可以直接帶著它私訊聯繫。</p>
+          <p>留下資料，我們會與你聯繫。</p>
         </div>
 
         <div class="field">
@@ -668,9 +668,14 @@ footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--s
           <input id="f-org" name="org" type="text" autocomplete="organization" placeholder="選填">
         </div>
         <div class="field">
-          <label for="f-contact">聯絡方式 <span class="req">*</span></label>
-          <input id="f-contact" name="contact" type="text" required placeholder="Email 或手機">
-          <p class="err" id="e-contact">請留下 Email 或電話，我們才能回覆您。</p>
+          <label for="f-contact">手機 <span class="req">*</span></label>
+          <input id="f-contact" name="contact" type="tel" inputmode="tel" required autocomplete="tel" placeholder="例如 0912-345-678">
+          <p class="err" id="e-contact">請留下手機號碼，我們才能回覆您。</p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="選填">
+          <p class="err" id="e-email">Email 格式好像不太對，請檢查一下，或留空。</p>
         </div>
         <div class="field">
           <label for="f-role">您的身分 <span class="req">*</span></label>
@@ -689,13 +694,13 @@ footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--s
           <textarea id="f-msg" name="msg" rows="3" placeholder="一兩句話就好"></textarea>
         </div>
 
-        <p class="form__note">送出後將為你整理一段可直接複製的自我介紹，並開啟 Facebook 私訊視窗。你的資料不會被送到任何第三方伺服器。</p>
-        <button type="submit" class="btn btn--solid form__submit" id="submitBtn">送出並前往聯繫</button>
+        <p class="form__note">送出後，您的資料會傳給本計畫的聯絡團隊（大樹教育活動報名系統），用於回覆您。</p>
+        <button type="submit" class="btn btn--solid form__submit" id="submitBtn">送出報名</button>
 
         <div class="sent" id="sentPanel" role="status">
-          <h3>已為你整理好了</h3>
-          <p id="sentMsg">你的意向摘要已複製到剪貼簿。點下方按鈕前往 Facebook，貼上並送出即可。</p>
-          <p style="margin-block:1.4rem 0"><a class="btn btn--solid" href="https://www.facebook.com/qiu.yu.rong.242129" target="_blank" rel="noopener">前往 Facebook 聯繫邱裕榮</a></p>
+          <h3 id="sentTitle">報名資料已送出</h3>
+          <p id="sentMsg">我們收到了，會盡快與你聯繫。也可以前往 Facebook 直接私訊邱裕榮。</p>
+          <p style="margin-block:1.4rem 0"><a class="btn btn--solid" href="https://www.facebook.com/qiu.yu.rong.242129" target="_blank" rel="noopener">前往 Facebook 私訊邱裕榮</a></p>
         </div>
       </form>
     </div>
@@ -760,7 +765,8 @@ footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--s
   var form = document.getElementById('joinForm');
   var checks = [
     {id:'f-name', f:'e-name', test:function(v){ return v.trim().length>0; }},
-    {id:'f-contact', f:'e-contact', test:function(v){ return v.trim().length>=5; }},
+    {id:'f-contact', f:'e-contact', test:function(v){ return v.replace(/\D/g,'').length>=8; }},
+    {id:'f-email', f:'e-email', test:function(v){ v=v.trim(); return v==='' || /^\S+@\S+\.\S+$/.test(v); }},
     {id:'f-role', f:'e-role', test:function(v){ return v!==''; }}
   ];
   function validate(c, showErr){
@@ -792,31 +798,43 @@ footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--s
       '您好，我在「當 AI 遇上農業」頁面看到這個計畫，想進一步了解與參與。\n\n' +
       '姓名：' + v('f-name') + '\n' +
       (v('f-org') ? '單位：' + v('f-org') + '\n' : '') +
-      '聯絡方式：' + v('f-contact') + '\n' +
+      '手機：' + v('f-contact') + '\n' +
+      (v('f-email') ? 'Email：' + v('f-email') + '\n' : '') +
       '身分：' + v('f-role') + '\n' +
       (v('f-msg') ? '想一起做的事：' + v('f-msg') + '\n' : '');
 
-    var finish = function(copied){
-      document.getElementById('sentMsg').textContent = copied
-        ? '你的意向摘要已複製到剪貼簿。點下方按鈕前往 Facebook，貼上並送出即可。'
-        : '請複製下方內容後，前往 Facebook 私訊給邱裕榮：\n\n' + summary;
+    var btn = document.getElementById('submitBtn');
+    var finish = function(ok){
+      document.getElementById('sentTitle').textContent = ok ? '報名資料已送出' : '資料暫時沒送出去';
+      document.getElementById('sentMsg').textContent = ok
+        ? '我們收到了，會盡快與你聯繫。也可以前往 Facebook 直接私訊邱裕榮。'
+        : '很抱歉，網路好像不太順。請複製下方內容後，前往 Facebook 私訊給邱裕榮：\n\n' + summary;
       form.classList.add('is-sent');
+      btn.removeAttribute('aria-busy');
       document.getElementById('sentPanel').scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
     };
 
-    var btn = document.getElementById('submitBtn');
     btn.setAttribute('aria-busy','true');
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(summary).then(function(){ finish(true); }, function(){ finish(false); });
-    } else { finish(false); }
+    btn.disabled = true;
+    var payload = {
+      slug: 'qiu-yurong', name: v('f-name'), phone: v('f-contact'), company: v('f-org'), email: v('f-email'),
+      note: '身分：' + v('f-role') + (v('f-msg') ? '\n想一起做：' + v('f-msg') : ''), source: 'qiu-yurong'
+    };
+    var ctl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function(){ ctl.abort(); }, 15000) : null;
+    fetch('https://event.bymyway.com/api/register', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload),
+      signal: ctl ? ctl.signal : undefined
+    }).then(function(r){ return r.json(); })
+      .then(function(d){ finish(!!(d && d.ok)); }, function(){ finish(false); })
+      .then(function(){ if(timer) clearTimeout(timer); });
   });
 })();
 </script>
 <!--
   NOTE FOR THE SITE OWNER:
-  The join form is intentionally front-end only — nothing is posted to a server.
-  To collect submissions directly, point the <form> at your own endpoint
-  (Formspree / Google Apps Script / your CRM) and remove the clipboard fallback in the submit handler.
+  The join form posts to https://event.bymyway.com/api/register (slug: qiu-yurong),
+  which stores the entry in the event database and notifies the registration group.
 -->
 </body>
 </html>
