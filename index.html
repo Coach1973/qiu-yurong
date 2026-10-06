@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>當 AI 遇上農業｜從媒體到使命的跨界行者 · 邱裕榮</title>
+<meta name="description" content="二十餘年財經媒體人邱裕榮，將採訪與 AI 技術帶回土地。四大跨界支柱、三階段落地路徑，以及一個關於價值觀、呼召與生命抉擇的計畫。">
+<meta property="og:title" content="當 AI 遇上農業｜從媒體到使命的跨界行者">
+<meta property="og:description" content="農業早已不是看天吃飯的悲情產業，而是未來生物經濟、ESG 金融與人道科技的交會樞紐。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://event.bymyway.com/curated/qiu-yurong/img/hero-green.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141110'/%3E%3Cpath d='M16 6v20M16 12c0-3 3-5 6-5 0 4-3 6-6 6zM16 18c0-3-3-5-6-5 0 4 3 6 6 6z' stroke='%235E8C55' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* neutrals — the field (70–90%) */
+  --paper:#F2ECE1;
+  --paper-2:#E8DFCF;
+  --ink:#191512;
+  --ink-2:#3A322A;
+  --muted:#7A6E60;
+  --hair:rgba(25,21,18,.14);
+  --soil:#141110;
+  --soil-2:#1E1916;
+  --soil-hair:rgba(242,236,225,.18);
+  --paper-on-soil:#EFE8DB;
+  --muted-on-soil:#B3A695;
+  /* the single accent (5–10%) */
+  --leaf:#3F6B41;
+  --leaf-bright:#8FB877;
+  /* effect layer (<1%) */
+  --gold:#8A6A32;        /* gold on LIGHT ground — darkened for contrast */
+  --gold-lit:#EFC873;    /* gold on DARK ground — brightened for contrast */
+
+  --serif:"Noto Serif TC",Songti TC,"Source Han Serif TC",serif;
+  --sans:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(1.25rem,5vw,5.5rem);
+  --maxw:1240px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:300;font-size:clamp(1rem,.94rem + .28vw,1.1rem);
+  line-height:1.85;letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+/* paper grain */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+::selection{background:var(--leaf);color:#fff}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+
+/* ── nav ───────────────────────────────── */
+.nav{
+  position:fixed;inset-block-start:0;inset-inline:0;z-index:60;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.85rem var(--pad);
+  background:color-mix(in srgb,var(--paper) 82%,transparent);
+  backdrop-filter:blur(14px) saturate(1.1);
+  border-block-end:1px solid transparent;
+  transition:border-color .3s var(--ease),background .3s var(--ease);
+}
+.nav.is-stuck{border-block-end-color:var(--hair)}
+.nav__mark{font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:.14em;white-space:nowrap}
+.nav__mark span{color:var(--leaf)}
+.nav__links{margin-inline-start:auto;display:flex;gap:1.6rem;align-items:center}
+.nav__links a{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);padding-block:.4rem;position:relative;
+}
+.nav__links a::after{content:"";position:absolute;inset-block-end:0;inset-inline:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .28s var(--ease)}
+.nav__links a:hover{color:var(--ink)}
+.nav__links a:hover::after{transform:scaleX(1)}
+.nav__cta{
+  margin-inline-start:.4rem;background:var(--ink);color:var(--paper)!important;
+  padding:.55rem 1.1rem!important;border-radius:999px;
+}
+.nav__cta::after{display:none!important}
+.nav__cta:hover{background:var(--leaf)}
+@media(max-width:860px){.nav__links a:not(.nav__cta){display:none}}
+
+/* ── hero ──────────────────────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--soil)}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 48%;
+  filter:saturate(1.14) contrast(1.02) brightness(1.03);
+  animation:drift 26s var(--ease) forwards}
+@keyframes drift{from{transform:scale(1.09)}to{transform:scale(1)}}
+/* green-tinted scrim: keeps the top two-thirds luminous, earns contrast only where the type sits */
+.hero__bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(178deg,
+      rgba(12,26,15,.40) 0%,
+      rgba(12,26,15,.06) 20%,
+      rgba(12,26,15,0) 40%,
+      rgba(10,24,13,.34) 60%,
+      rgba(9,21,12,.80) 82%,
+      rgba(8,18,11,.95) 100%);
+}
+.hero__inner{position:relative;z-index:1;width:100%;max-width:var(--maxw);margin-inline:auto;padding:0 var(--pad) clamp(3rem,7vh,5.5rem)}
+.hero__kicker{
+  color:var(--gold-lit);display:flex;align-items:center;gap:.9rem;margin-block-end:clamp(1.2rem,3vh,2rem);
+  font-size:.86rem;font-weight:600;letter-spacing:.2em;
+  text-shadow:0 1px 10px rgba(6,16,9,.85),0 0 2px rgba(6,16,9,.6);
+}
+.hero__kicker::before{content:"";width:clamp(28px,6vw,64px);height:2px;background:var(--gold-lit);flex:none;box-shadow:0 1px 8px rgba(6,16,9,.7)}
+.hero h1{
+  font-family:var(--serif);font-weight:200;color:#fff;
+  font-size:clamp(3.1rem,11.5vw,9.5rem);line-height:.94;letter-spacing:-.035em;
+  margin:0;text-wrap:balance;
+  text-shadow:0 4px 40px rgba(6,16,9,.7),0 1px 4px rgba(6,16,9,.35);
+}
+.hero h1 em{font-style:normal;font-weight:900;color:#F5CF7C;text-shadow:0 4px 34px rgba(6,16,9,.75),0 1px 3px rgba(6,16,9,.45)}
+.hero__sub{
+  margin:clamp(1.4rem,4vh,2.4rem) 0 0;max-width:46ch;
+  color:rgba(243,238,229,.95);font-size:clamp(1.02rem,.92rem + .5vw,1.38rem);font-weight:300;line-height:1.78;
+  text-shadow:0 2px 16px rgba(6,16,9,.8);
+}
+.hero__sub strong{font-weight:500;color:#fff}
+.hero__foot{
+  margin-block-start:clamp(2rem,5vh,3.2rem);display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:var(--sans);font-size:.92rem;font-weight:500;letter-spacing:.06em;
+  padding:1rem 1.9rem;border-radius:999px;text-decoration:none;border:1px solid transparent;
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+}
+.btn--solid{background:var(--leaf-bright);color:#15130f;border-color:var(--leaf-bright)}
+.btn--solid:hover{background:#fff;border-color:#fff;transform:translateY(-2px)}
+.btn--ghost{color:#EDE5D7;border-color:rgba(237,229,215,.4)}
+.btn--ghost:hover{border-color:#EDE5D7;background:rgba(237,229,215,.08)}
+.btn--dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn--dark:hover{background:var(--leaf);border-color:var(--leaf);transform:translateY(-2px)}
+.btn--line{color:var(--ink);border-color:var(--hair)}
+.btn--line:hover{border-color:var(--ink)}
+.hero__scroll{
+  position:absolute;inset-inline-end:var(--pad);inset-block-end:clamp(3rem,7vh,5.5rem);z-index:1;
+  color:rgba(243,238,229,.82);text-shadow:0 1px 10px rgba(6,16,9,.8);writing-mode:vertical-rl;display:flex;align-items:center;gap:.8rem;
+}
+.hero__scroll::after{content:"";width:1px;height:52px;background:linear-gradient(rgba(243,238,229,.7),transparent)}
+@media(max-width:700px){.hero__scroll{display:none}}
+
+/* ── generic section ───────────────────── */
+section{position:relative}
+.sec{padding-block:clamp(5rem,13vh,9rem)}
+.sec--tight{padding-block:clamp(3.5rem,8vh,6rem)}
+.eyebrow{
+  color:var(--leaf);display:flex;align-items:center;gap:.8rem;margin-block-end:1.4rem;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;flex:none}
+h2{
+  font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(2rem,1.2rem + 3.2vw,4rem);margin:0 0 1.2rem;text-wrap:balance;
+}
+h2 b{font-weight:900}
+h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.2rem,1.05rem + .5vw,1.6rem);line-height:1.4;margin:0 0 .7rem;letter-spacing:-.01em}
+p{margin:0 0 1.15em;max-width:68ch}
+.lead{font-size:clamp(1.08rem,1rem + .45vw,1.35rem);line-height:1.85;color:var(--ink-2);font-weight:300}
+.dim{color:var(--muted)}
+
+/* ── prologue: quote + ledger ──────────── */
+.prologue{border-block-end:1px solid var(--hair)}
+.pull{
+  font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,1rem + 3.1vw,3.4rem);
+  line-height:1.44;letter-spacing:-.02em;margin:0;max-width:22ch;text-wrap:balance;
+}
+.pull__mark{display:block;font-size:2.6em;line-height:.1;color:var(--gold);height:.5em;font-family:var(--serif)}
+.prologue__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,6vw,5.5rem);align-items:end}
+.prologue__side p{font-size:1rem;color:var(--ink-2)}
+.ledger{list-style:none;margin:2.5rem 0 0;padding:0;border-block-start:1px solid var(--ink)}
+.ledger li{display:flex;align-items:baseline;gap:1.2rem;padding-block:1rem;border-block-end:1px solid var(--hair)}
+.ledger .n{font-family:var(--serif);font-weight:200;font-size:clamp(2rem,1.4rem + 2vw,3rem);line-height:1;letter-spacing:-.04em;min-width:2.6ch}
+.ledger .t{font-size:1rem;color:var(--ink-2)}
+@media(max-width:840px){.prologue__grid{grid-template-columns:1fr}}
+
+/* ── portrait chapter ──────────────────── */
+.person__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.person__fig{position:sticky;top:6rem}
+.person__fig img{border-radius:2px;filter:saturate(.92)}
+.person__fig figcaption{margin-block-start:.9rem;color:#5F5546;font-size:.93rem;line-height:1.7}
+.namecard{border-block-start:2px solid var(--ink);padding-block-start:1.2rem;margin-block-end:2.4rem}
+.namecard h2{margin-block-end:.3rem}
+.namecard .roles{font-size:1.05rem;color:#5F5546;letter-spacing:.02em;line-height:1.8}
+.confession{
+  margin:2.2rem 0;padding:1.4rem 0 1.4rem 1.6rem;border-inline-start:2px solid var(--gold);
+  font-family:var(--serif);font-size:clamp(1.05rem,1rem + .4vw,1.3rem);line-height:1.7;color:var(--ink);
+}
+.confession span{display:block;margin-block-start:.6rem;font-family:var(--sans);font-size:.92rem;letter-spacing:.1em;color:#5F5546}
+.tl{list-style:none;margin:2.6rem 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;inset-block:.7rem 1.2rem;inset-inline-start:5.6rem;width:1px;background:var(--hair)}
+.tl li{display:grid;grid-template-columns:5.6rem 1fr;gap:0 2rem;padding-block:0 1.9rem;position:relative}
+.tl li::before{
+  content:"";position:absolute;inset-inline-start:calc(5.6rem - 3.5px);inset-block-start:.55rem;
+  width:8px;height:8px;border-radius:50%;background:var(--paper);border:1.5px solid var(--muted);
+}
+.tl li.is-now::before{background:var(--leaf);border-color:var(--leaf);box-shadow:0 0 0 4px color-mix(in srgb,var(--leaf) 18%,transparent)}
+.tl .era{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:#5F5546;font-weight:500;padding-block-start:.35rem;text-align:end}
+.tl .body h4{margin:0 0 .25rem;font-size:1.02rem;font-weight:500;letter-spacing:.01em}
+.tl .body p{margin:0;font-size:.98rem;color:#5F5546;line-height:1.75}
+@media(max-width:840px){
+  .person__grid{grid-template-columns:1fr}
+  .person__fig{position:static;order:-1}
+  .tl::before{inset-inline-start:4.2rem}
+  .tl li{grid-template-columns:4.2rem 1fr;gap:0 1.2rem}
+  .tl li::before{inset-inline-start:calc(4.2rem - 3.5px)}
+}
+
+/* ── turn (dark band) ──────────────────── */
+.turn{background:var(--soil);color:var(--paper-on-soil);padding-block:clamp(5rem,14vh,9rem)}
+.turn .eyebrow{color:var(--leaf-bright)}
+.turn h2{color:#fff;max-width:20ch}
+.turn__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.turn p{color:#C3B7A5;max-width:52ch}
+.turn p strong{color:#fff;font-weight:400}
+@media(max-width:840px){.turn__grid{grid-template-columns:1fr}}
+
+/* ── strata (the core sample) ──────────── */
+.strata{background:var(--soil-2);color:var(--paper-on-soil);padding-block:clamp(4rem,10vh,7rem) clamp(5rem,13vh,9rem);overflow:clip}
+.strata .eyebrow{color:var(--leaf-bright)}
+.strata h2{color:#fff}
+.strata__intro{max-width:60ch;color:#C3B7A5;margin-block-end:clamp(2.5rem,7vh,4.5rem)}
+.strata__grid{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(1.5rem,4vw,4rem)}
+.core{position:sticky;top:5.5rem;align-self:start}
+.core__img{position:relative;border-radius:2px;overflow:hidden}
+.core__img img{width:100%;filter:saturate(.9) brightness(.92)}
+.core__scan{
+  position:absolute;inset-inline:0;height:2px;background:var(--leaf-bright);
+  box-shadow:0 0 18px 3px color-mix(in srgb,var(--leaf-bright) 55%,transparent);
+  top:0;transition:top .6s var(--ease);
+}
+.core__read{display:flex;align-items:baseline;gap:.6rem;margin-block-start:1rem;border-block-start:1px solid var(--soil-hair);padding-block-start:1rem}
+.core__read .d{font-family:var(--serif);font-weight:200;font-size:2.4rem;line-height:1;color:#fff;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.core__read .u{font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;color:#C3B7A5}
+.core__read .lbl{margin-inline-start:auto;font-size:1rem;font-weight:500;color:#A9D18C;text-align:end}
+@media(max-width:900px){.strata__grid{grid-template-columns:1fr}.core{position:static;max-width:340px}}
+
+.layer{
+  border-block-start:1px solid var(--soil-hair);padding-block:clamp(2rem,5vh,3.2rem);
+  display:grid;grid-template-columns:auto 1fr;gap:0 clamp(1.2rem,3vw,2.6rem);
+}
+.layer:last-child{border-block-end:1px solid var(--soil-hair)}
+.layer__no{
+  font-family:var(--serif);font-weight:200;font-size:clamp(3.4rem,2rem + 5vw,6.2rem);line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(237,229,215,.35);letter-spacing:-.05em;
+  transition:color .5s var(--ease),-webkit-text-stroke-color .5s var(--ease);
+}
+.layer.is-active .layer__no{color:var(--leaf-bright);-webkit-text-stroke-color:transparent}
+.layer__depth{grid-column:1;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;color:#C3B7A5;font-weight:500;margin-block-start:.9rem;text-align:center}
+.layer h3{color:#fff;font-size:clamp(1.3rem,1.05rem + .8vw,1.9rem);font-weight:600}
+.layer h3 small{display:block;font-family:var(--mono);font-size:.86rem;letter-spacing:.14em;color:var(--gold-lit);font-weight:600;margin-block-end:.85rem;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.layer p{color:#C3B7A5;font-size:1.02rem;max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-block-start:1.3rem;padding:0;list-style:none}
+.chips li{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;color:#F0E9DC;
+  border:1px solid rgba(242,236,225,.3);border-radius:999px;padding:.48rem 1rem;
+}
+.chips li b{color:#A9D18C;font-weight:600}
+.quote-inline{
+  margin:1.5rem 0 0;font-family:var(--serif);font-size:1.14rem;line-height:1.8;color:#F5EFE4;
+  border-inline-start:3px solid var(--gold-lit);padding-inline-start:1.2rem;max-width:52ch;
+}
+@media(max-width:620px){
+  .layer{grid-template-columns:1fr}
+  .layer__depth{margin-block:.4rem 1rem;text-align:start}
+}
+
+/* ── comparison table ──────────────────── */
+.compare__head{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:end;margin-block-end:clamp(2rem,5vh,3.4rem)}
+.compare__fig img{border-radius:2px}
+.compare__fig figcaption{margin-block-start:.8rem;font-size:.93rem;color:#5F5546}
+table{width:100%;border-collapse:collapse;font-size:1rem}
+caption{text-align:start;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;color:#5F5546;font-weight:500;padding-block-end:1rem;text-transform:uppercase}
+th,td{padding:1.15rem 1.2rem;text-align:start;vertical-align:top;border-block-end:1px solid var(--hair);line-height:1.65}
+thead th{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;font-weight:600;color:#4E4438;
+  text-transform:uppercase;border-block-end:1px solid var(--ink);padding-block:.8rem;
+}
+tbody th{font-weight:600;font-size:1rem;width:20%;color:var(--ink)}
+td:nth-child(2){color:#5F5546;width:36%}
+td:last-child{color:var(--ink-2);background:color-mix(in srgb,var(--leaf) 5%,transparent)}
+td:last-child b{color:var(--leaf);font-weight:600}
+@media(max-width:760px){
+  .compare__head{grid-template-columns:1fr}
+  table,thead,tbody,tr,th,td{display:block;width:100%}
+  caption{display:block;width:100%}
+  tbody th,td:nth-child(2),td:last-child{width:100%}
+  thead{display:none}
+  tbody tr{border-block-end:1px solid var(--ink);padding-block:.6rem}
+  tbody th{width:auto;padding-block-end:.3rem;border:0;font-size:1rem}
+  td{border:0;padding-block:.35rem}
+  td::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;color:var(--muted);margin-block-end:.2rem}
+}
+
+/* ── protocol ──────────────────────────── */
+.protocol{background:var(--paper-2);border-block:1px solid var(--hair)}
+.protocol__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin-block-start:clamp(2rem,5vh,3.2rem)}
+.protocol__cell{background:var(--paper-2);padding:clamp(1.6rem,3.5vw,2.6rem);transition:background .3s var(--ease)}
+.protocol__cell:hover{background:var(--paper)}
+.protocol__cell .idx{font-family:var(--mono);font-size:.82rem;letter-spacing:.14em;font-weight:600;color:var(--gold)}
+.protocol__cell h3{margin-block:1.6rem .5rem}
+.protocol__cell .en{font-family:var(--mono);font-size:.82rem;letter-spacing:.1em;color:#5F5546;display:block;margin-block-end:.9rem}
+.protocol__cell p{font-size:1rem;color:var(--ink-2);margin:0}
+@media(max-width:760px){.protocol__grid{grid-template-columns:1fr}}
+
+/* ── phases ────────────────────────────── */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem);margin-block-start:clamp(2.5rem,6vh,4rem);counter-reset:ph}
+.phase{border-block-start:2px solid var(--ink);padding-block-start:1.5rem;position:relative}
+.phase:nth-child(2){border-block-start-color:var(--muted)}
+.phase:nth-child(3){border-block-start-color:var(--hair)}
+.phase .tag{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;color:#5F5546;font-weight:500;display:block;margin-block-end:1.4rem}
+.phase h3{font-size:clamp(1.1rem,1rem + .5vw,1.45rem)}
+.phase p{font-size:1rem;color:var(--ink-2);margin-block-end:1.1rem}
+.phase ul{margin:0;padding-inline-start:1.1rem;font-size:.95rem;color:#5F5546;line-height:1.95}
+.phase ul li::marker{color:var(--leaf)}
+@media(max-width:820px){.phases{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ── join ──────────────────────────────── */
+.join{background:var(--soil);color:var(--paper-on-soil);padding-block:clamp(5rem,13vh,9rem)}
+.join .eyebrow{color:var(--leaf-bright)}
+.join h2{color:#fff}
+.join__lead{color:#C3B7A5;max-width:56ch;margin-block-end:clamp(2.5rem,6vh,4rem)}
+.join__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.roles{display:grid;gap:1px;background:var(--soil-hair);border:1px solid var(--soil-hair)}
+.role{background:var(--soil);padding:1.5rem 1.6rem;display:grid;grid-template-columns:auto 1fr;gap:0 1.3rem;transition:background .3s var(--ease)}
+.role:hover{background:var(--soil-2)}
+.role .k{font-family:var(--mono);font-size:1rem;font-weight:600;color:var(--gold-lit);
+  width:2.1rem;height:2.1rem;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(239,200,115,.45);margin-block-start:.15rem}
+.role h4{margin:0 0 .35rem;font-size:1.08rem;font-weight:500;color:#fff}
+.role p{margin:0;font-size:.97rem;color:#C3B7A5;line-height:1.75;max-width:none}
+
+form{border:1px solid var(--soil-hair);padding:clamp(1.5rem,3.5vw,2.4rem);background:rgba(242,236,225,.03)}
+.field{margin-block-end:1.3rem}
+.field label{display:block;font-family:var(--mono);font-size:.82rem;letter-spacing:.1em;color:#CFC4B2;font-weight:500;margin-block-end:.6rem;text-transform:uppercase}
+.field label .req{color:var(--gold-lit);font-size:1.15em}
+.field input,.field select,.field textarea{
+  width:100%;background:transparent;border:0;border-block-end:1px solid var(--soil-hair);
+  color:var(--paper-on-soil);font-family:var(--sans);font-size:1rem;font-weight:300;padding:.65rem 0;
+  border-radius:0;transition:border-color .25s var(--ease);
+}
+.field select{padding-inline-end:1.5rem;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239A8E7D' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .1rem center}
+.field select option{background:var(--soil-2);color:var(--paper-on-soil)}
+.field textarea{resize:vertical;min-height:5.5rem;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-block-end-color:var(--leaf-bright)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(154,142,125,.6)}
+.field input:user-invalid,.field textarea:user-invalid{border-block-end-color:#C4695A}
+.err{display:none;font-size:.78rem;color:#E0917F;margin-block-start:.45rem;letter-spacing:.02em}
+.field.has-err .err{display:block}
+.field.has-err input,.field.has-err select,.field.has-err textarea{border-block-end-color:#C4695A}
+.form__note{font-size:.9rem;color:#B3A695;line-height:1.75;margin-block:1.3rem 0}
+.form__submit{width:100%;justify-content:center;cursor:pointer;font-family:var(--sans)}
+.form__submit[aria-busy="true"]{opacity:.6;pointer-events:none}
+.sent{display:none;text-align:center;padding-block:1rem}
+.sent h3{color:#fff}
+.sent p{color:#C3B7A5;font-size:1.02rem;margin-inline:auto}
+form.is-sent .field,form.is-sent .form__note,form.is-sent .form__submit,form.is-sent .form__head{display:none}
+form.is-sent .sent{display:block}
+.form__head{margin-block-end:1.8rem}
+.form__head h3{color:#fff;margin-block-end:.4rem}
+.form__head p{font-size:.98rem;color:#C3B7A5;margin:0}
+@media(max-width:900px){.join__grid{grid-template-columns:1fr}}
+
+/* ── footer ────────────────────────────── */
+footer{background:var(--soil);color:#C3B7A5;border-block-start:1px solid var(--soil-hair);padding-block:clamp(3.5rem,9vh,5.5rem)}
+.foot__grid{display:flex;flex-wrap:wrap;gap:2.5rem 3rem;justify-content:space-between;align-items:flex-start}
+.foot__mark{font-family:var(--serif);font-size:clamp(1.7rem,1.4rem + 1vw,2.2rem);font-weight:300;color:#fff;letter-spacing:-.01em;line-height:1.3}
+.foot__mark span{color:#A9D18C;font-weight:900}
+.foot__tag{margin:0;font-size:1.05rem;color:#C3B7A5;letter-spacing:.02em}
+.foot__links{display:flex;flex-wrap:wrap;gap:.6rem 2rem}
+.foot__links a{
+  font-size:1.05rem;font-weight:400;text-decoration:none;color:#EFE8DB;
+  padding-block:.35rem;border-block-end:1px solid rgba(239,232,219,.3);
+  transition:color .25s var(--ease),border-color .25s var(--ease);
+}
+.foot__links a:hover{color:#A9D18C;border-block-end-color:#A9D18C}
+.foot__fine{
+  width:100%;border-block-start:1px solid var(--soil-hair);
+  margin-block-start:3rem;padding-block-start:1.8rem;
+  font-size:.95rem;line-height:1.95;color:#A39684;max-width:82ch;
+}
+@media(max-width:620px){.foot__links{flex-direction:column;gap:0}
+  .foot__links a{border-block-end:1px solid rgba(239,232,219,.16);padding-block:.85rem}}
+
+/* ── reveal ────────────────────────────── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__mark" href="#top" style="text-decoration:none">當 AI 遇上<span>農業</span></a>
+  <div class="nav__links">
+    <a href="#person">那個人</a>
+    <a href="#strata">四大支柱</a>
+    <a href="#protocol">軟體協定</a>
+    <a href="#path">落地路徑</a>
+    <a href="#join" class="nav__cta">我想參與</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero" id="top">
+  <div class="hero__bg"><img src="img/hero-green.jpg" alt="晨光下翠綠的水梯田，秧苗成行，水面映著天空，遠處山巒層疊。" fetchpriority="high" width="1600" height="900"></div>
+  <div class="hero__inner">
+    <p class="mono hero__kicker">戰略白皮書 ｜ 跨界賦能與商業重構</p>
+    <h1>當 AI<br>遇上<em>農業</em></h1>
+    <p class="hero__sub"><strong>從媒體到使命的跨界行者。</strong>一位訪問過無數董事長的財經記者，最後把麥克風轉向了土地——這一次，他要問的不是財報，是價值觀、呼召，與生命的抉擇。</p>
+    <div class="hero__foot">
+      <a href="#strata" class="btn btn--solid">認識這個計畫</a>
+      <a href="#join" class="btn btn--ghost">我想參與</a>
+    </div>
+  </div>
+  <p class="mono hero__scroll">向下探勘</p>
+</header>
+
+<!-- ══ PROLOGUE ══ -->
+<section class="sec prologue">
+  <div class="wrap prologue__grid">
+    <blockquote class="pull rv">
+      <span class="pull__mark" aria-hidden="true">“</span>
+      農業早已不是看天吃飯的悲情產業，而是未來生物經濟、ESG 金融與人道科技的交會樞紐。
+    </blockquote>
+    <div class="prologue__side rv">
+      <p class="dim">這句話出自一份戰略白皮書的結語。寫下它的人，不是農學博士，也不是創投合夥人——他是一位在財經新聞現場待了二十多年的記者。</p>
+      <ul class="ledger">
+        <li><span class="n">20<sup style="font-size:.4em">+</sup></span><span class="t">年財經與管理媒體資歷，訪遍上市櫃董事長與中小企業主</span></li>
+        <li><span class="n">04</span><span class="t">個跨界支柱：半導體材料、精品防偽、綠建築套利、靈魂對齊</span></li>
+        <li><span class="n">03</span><span class="t">階段落地路徑，從最高可落地性的項目開始推進</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PERSON ══ -->
+<section class="sec" id="person">
+  <div class="wrap person__grid">
+    <figure class="person__fig rv" style="margin:0">
+      <img src="img/still-life.jpg" alt="舊木桌上放著錄音筆、老花眼鏡與一穗麥子，側光從窗邊落下。" width="1200" height="900" loading="lazy">
+      <figcaption>錄音筆、眼鏡、一穗麥。<br>二十年的採訪工具，現在服務的是另一種故事。</figcaption>
+    </figure>
+
+    <div>
+      <div class="namecard rv">
+        <p class="mono eyebrow">那個人</p>
+        <h2>邱裕榮</h2>
+        <p class="roles">才榮數位 總經理｜AI 商業模式 共同創辦人<br>AI 傳道學院 創辦人｜AI 媒體聯盟 總編輯</p>
+      </div>
+
+      <p class="lead rv">屏東出身，高雄中學、中國文化大學法律系，後於文化大學大陸問題研究所取得法學碩士。他的職涯從《工商時報》大陸新聞中心的記者開始，經歷《管理雜誌》，再到東森聯播網《BossClub 老闆俱樂部》的主持台。</p>
+      <p class="rv">二十多年來，他坐在無數位董事長與中小企業主對面。聽的是策略、資本、擴張與轉型，看的卻是企業的興衰、領導者的抉擇，以及那些沒有被寫進財報裡的人性掙扎。</p>
+
+      <blockquote class="confession rv">先求神的國與神的義。<span>——他個人頁面上唯一的一句自我介紹</span></blockquote>
+
+      <ul class="tl">
+        <li class="rv"><span class="era">記者年代</span><div class="body"><h4>《工商時報》大陸新聞中心</h4><p>財經新聞第一線，長期追蹤兩岸產業與企業動態。法學訓練成為他讀懂法規與制度的底子。</p></div></li>
+        <li class="rv"><span class="era">管理現場</span><div class="body"><h4>《管理雜誌》</h4><p>從報導事件轉向解構經營，深入企業的組織、決策與領導課題。</p></div></li>
+        <li class="rv"><span class="era">主持台</span><div class="body"><h4>東森聯播網《BossClub 老闆俱樂部》主持人</h4><p>把董事長請進錄音室。上千小時的對話，累積成一座關於台灣中小企業的口述檔案庫。</p></div></li>
+        <li class="rv"><span class="era">跨界</span><div class="body"><h4>才榮數位 總經理｜AI 商業模式 共同創辦人</h4><p>將採訪功力結合 AI 技術，投入 AI 錄音、逐字稿、內容組織與決策分析——把零散的對話，轉化為可被理解、記錄與傳承的智慧資產。</p></div></li>
+        <li class="rv is-now"><span class="era">現在</span><div class="body"><h4>AI 傳道學院 創辦人｜AI 媒體聯盟 總編輯</h4><p>成為一座橋樑，連結企業、教會、創業者與跨文化行動者，讓科技成為承載使命、記錄見證、傳遞異象的器皿。</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE TURN ══ -->
+<section class="turn">
+  <div class="wrap turn__grid">
+    <div class="rv">
+      <p class="mono eyebrow">轉折</p>
+      <h2>他慢慢看見了<br><b>一件事</b></h2>
+    </div>
+    <div class="rv">
+      <p>在媒體生涯裡，他逐漸意識到：<strong>真正影響企業與社會的，不只是策略與資本，而是價值觀、呼召與生命抉擇。</strong></p>
+      <p>技術可以被複製，資本可以被募集，商業模式可以被抄襲。唯一無法外包的，是一家企業究竟相信什麼。</p>
+      <p>於是他把問題帶回了最古老的產業——農業。那是一個被長期定義為勞力密集、低利潤、看天吃飯的地方，也是一個最直接觸及土地、糧食與生命本質的地方。</p>
+      <p>當生物科技深度演進，遇上 AI 的全面賦能，他相信農業正在經歷一場歷史性的<strong>跨界升維</strong>：它不再只是種出食物，而是同時鏈接半導體材料、奢侈品防偽、綠色建築與資產增值——並且，可以在一套正確的價值框架下運行。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STRATA / FOUR PILLARS ══ -->
+<section class="strata" id="strata">
+  <div class="wrap">
+    <p class="mono eyebrow rv">四大跨界支柱</p>
+    <h2 class="rv">往下挖，<b>直到底層代碼</b></h2>
+    <p class="strata__intro rv">這份白皮書像一支取自田間的土壤剖面樣本：從最靠近地表、最快能落地的商業層，一路往下，直到那層決定一切的思想基岩。愈往下，愈不容易被複製。</p>
+
+    <div class="strata__grid">
+      <div class="core rv">
+        <figure class="core__img" style="margin:0">
+          <img src="img/strata.jpg" alt="土壤剖面標本，由深色表土往下分層至淺色母岩，細根與礦物顆粒穿插其中。" width="900" height="1200" loading="lazy">
+          <span class="core__scan" id="scan" aria-hidden="true"></span>
+        </figure>
+        <div class="core__read" aria-live="polite">
+          <span class="d" id="depth">01</span>
+          <span class="u">／ 04 層</span>
+          <span class="lbl" id="depthLabel">表土層 · 商業層</span>
+        </div>
+      </div>
+
+      <div>
+        <article class="layer rv" data-layer="1" data-label="表土層 · 生物煉金術">
+          <div><div class="layer__no">01</div><p class="layer__depth">表土 0–15cm</p></div>
+          <div>
+            <h3><small>領域一 · 半導體材料革命</small>生物煉金術：常溫提純的去碳化製程</h3>
+            <p>現代微電子工業的基礎是高純度矽晶圓，而傳統提煉必須在高溫電弧爐中進行，耗能極大、碳排沈重。白皮書提出的核心，是一項「微生物菌專利技術」：讓無機矽礦在<strong style="color:#EDE5D7;font-weight:400">常溫環境</strong>下，經微生物分解與吞噬轉化為有機矽。</p>
+            <p>AI 秘書在此扮演樞紐：即時環境監控與數據動態優化，確保生化反應槽內的溫度、濕度與菌株活性，維持在巔峰穩定狀態。</p>
+            <ul class="chips"><li>純度 <b>99.999999%</b>（9N）</li><li>符合<b>奈米級</b>矽晶圓規格</li><li>重工業<b>去碳化</b></li></ul>
+          </div>
+        </article>
+
+        <article class="layer rv" data-layer="2" data-label="心土層 · 生物編碼">
+          <div><div class="layer__no">02</div><p class="layer__depth">心土 15–60cm</p></div>
+          <div>
+            <h3><small>領域二 · 生物編碼與精品防偽</small>把生命訊息，寫進一顆寶石裡</h3>
+            <p>RFID、QR Code 與數位防偽標籤，都面臨被竄改、複製或撕毀的風險。這套方案改為將農研實驗室等級的生物訊息序列，<strong style="color:#EDE5D7;font-weight:400">物理性嵌入</strong>高級寶石、貴金屬或頂級皮件之中，並由 AI 秘書建立與維護專屬的「生物加密分類帳」。</p>
+            <blockquote class="quote-inline">「科學家就把那一隻蚊子的血拿出來，然後就複製成恐龍了⋯⋯我們是用這個農業技術。」</blockquote>
+            <p style="margin-block-start:1.2rem">由於生物特徵序列的排列組合具備天文數字級的唯一性，仿冒品在生化與光譜檢驗下無所遁形。</p>
+            <ul class="chips"><li>防駭<b>不可篡改</b></li><li><b>溯源</b>鑑定</li><li>跨時代<b>鑑價標準</b></li></ul>
+          </div>
+        </article>
+
+        <article class="layer rv" data-layer="3" data-label="風化層 · 監管套利">
+          <div><div class="layer__no">03</div><p class="layer__depth">風化層 60–120cm</p></div>
+          <div>
+            <h3><small>領域三 · 法律監管套利與綠建築</small>十七年的一塊布，換來千坪的銷售面積</h3>
+            <p>在不動產開發中，ESG 與綠建築認證常被建商視為「被動的環保成本負擔」。迪化街布商投入十七年研發的機能布，具備取代土壤的五大功能——<strong style="color:#EDE5D7;font-weight:400">保水、保濕、保氣、保肥、透氣</strong>——包覆外牆與屋頂，讓整座大樓像一棵會呼吸的大樹。</p>
+            <p>AI 秘書在此是法規與數據精算師：自動計算建築微氣候、灌溉循環、綠化率，以及法規容積獎勵的申請門檻，確保在 100% 合規前提下實現容積收益最大化。</p>
+            <ul class="chips"><li>額外 <b>10%</b> 容積獎勵</li><li>萬坪建案 → 增加 <b>1,000 坪</b>銷售面積</li><li><b>ESG 轉獲利</b></li></ul>
+          </div>
+        </article>
+
+        <article class="layer rv" data-layer="4" data-label="基岩層 · 靈魂對齊">
+          <div><div class="layer__no">04</div><p class="layer__depth">基岩 120cm+</p></div>
+          <div>
+            <h3><small>領域四 · 靈魂對齊與聖經管理學</small>技術越強大，對齊越重要</h3>
+            <p>若沒有思想架構的約束，技術將失去方向。白皮書主張以聖經原則——<strong style="color:#EDE5D7;font-weight:400">道、真理、生命</strong>——作為 AI 系統與整條跨界生態鏈的思想標竿，並把這套價值觀直接寫進底層代碼。</p>
+            <blockquote class="quote-inline">在 AI 時代，擁有「正確的靈魂」比擁有強大的技術更為重要。</blockquote>
+            <ul class="chips"><li><b>零殘留</b></li><li><b>非基改</b></li><li><b>全營養</b></li><li>伊甸園願景</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="compare__head">
+      <div class="rv">
+        <p class="mono eyebrow">案例解構</p>
+        <h2>把綠建築，<br>從<b>成本</b>變成<b>引擎</b></h2>
+        <p class="dim">同一棟樓，換一種材料與一套法規邏輯，帳就完全不一樣了。以下為白皮書中的關鍵維度對照。</p>
+      </div>
+      <figure class="compare__fig rv" style="margin:0">
+        <img src="img/facade.jpg" alt="住宅立面完整覆蓋模組化植生panel，植物自外牆與屋頂垂落。" width="1200" height="900" loading="lazy">
+        <figcaption>模組化布料包覆外牆與屋頂，使整座大樓如同一棵「會呼吸的大樹」。</figcaption>
+      </figure>
+    </div>
+
+    <div class="rv">
+    <table>
+      <caption>傳統綠化困境 ／ 跨界農業布料解方</caption>
+      <thead><tr><th scope="col">關鍵維度</th><th scope="col">傳統建築綠化困境</th><th scope="col">跨界農業布料創新解方</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">結構承重與土壤</th><td data-l="困境">天然土壤重量大、易流失、堵塞管線、滋生蚊蟲</td><td data-l="解方">十七年專利布料具備<b>保水、保濕、保氣、保肥、透氣</b>五大功能，輕量化極致</td></tr>
+        <tr><th scope="row">施工與維護</th><td data-l="困境">外牆立面難以大規模覆土，維護費用高昂</td><td data-l="解方">模組化布料包覆外牆與屋頂，<b>施工與維護大幅簡化</b></td></tr>
+        <tr><th scope="row">法規獲利轉化</th><td data-l="困境">僅獲得榮譽性標章，無法直接換算現金流</td><td data-l="解方">精準符合都更／綠建築標準，合法爭取<b>額外 10% 容積獎勵</b></td></tr>
+        <tr><th scope="row">商業收益量化</th><td data-l="困境">成本增加 5%～10%</td><td data-l="解方">以萬坪建案為例，合法增加 <b>1,000 坪</b>銷售面積，創造<b>數億元</b>商業增值</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROTOCOL ══ -->
+<section class="sec protocol" id="protocol">
+  <div class="wrap">
+    <p class="mono eyebrow rv">軟體協定</p>
+    <h2 class="rv">比法律更嚴苛的<b>三條線</b></h2>
+    <p class="lead rv" style="max-width:56ch">這不是行銷口號，而是寫進 AI 核心底層指令碼的生產標準。任何合作、任何產出，都必須通過這三項檢核。</p>
+    <div class="protocol__grid">
+      <div class="protocol__cell rv"><span class="idx">協定 01</span><h3>零殘留</h3><span class="en">Zero Residue</span><p>堅持生態淨化，無有害物質殘存。不以「符合法規上限」為終點，而以土地能否長久承載為標準。</p></div>
+      <div class="protocol__cell rv"><span class="idx">協定 02</span><h3>非基因改造</h3><span class="en">Non-GMO</span><p>尊重自然物種的原初創造與秩序。技術用來還原與守護，而不是重寫生命本身的設計。</p></div>
+      <div class="protocol__cell rv"><span class="idx">協定 03</span><h3>全營養</h3><span class="en">Full Nutrition</span><p>回歸大地造物設計，提供完整的生命滋養。作物不只被種出來，而是真正餵養人。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PATH ══ -->
+<section class="sec" id="path">
+  <div class="wrap">
+    <p class="mono eyebrow rv">落地路徑</p>
+    <h2 class="rv">層次化推進，<b>從最快落地的開始</b></h2>
+    <p class="lead rv" style="max-width:58ch">願景要大，但第一步要能真正動起來。這是白皮書建議的三階段推進戰略。</p>
+    <div class="phases">
+      <div class="phase rv">
+        <span class="tag">第一階段 · 進行中</span>
+        <h3>綠建築 ＋ 容積率獎勵</h3>
+        <p>率先鎖定都市更新案、品牌建商、代銷團隊與建築師事務所，迅速完成指標建案展示。</p>
+        <ul><li>提案主張：幫建商多賺數億容積</li><li>同時拿滿 ESG 評級</li><li>可驗證、可複製的示範案</li></ul>
+      </div>
+      <div class="phase rv">
+        <span class="tag">第二階段</span>
+        <h3>精品通路與高價值溯源</h3>
+        <p>對接高單價農產與高端珠寶奢侈品品牌，建立不可複製的溯源標籤。</p>
+        <ul><li>特等茶、沉香、頂級咖啡</li><li>生物編碼 ＋ AI 分類帳</li><li>建立高端市場品牌信任資產</li></ul>
+      </div>
+      <div class="phase rv">
+        <span class="tag">第三階段 · 長線</span>
+        <h3>常溫矽材料研發與產學驗證</h3>
+        <p>針對半導體級常溫微生物製程，走長線專利授權與綠色技術扶植路徑。</p>
+        <ul><li>SGS 等第三方工業技術驗證</li><li>半導體材料供應鏈天使投資</li><li>國發基金綠色技術扶植</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JOIN ══ -->
+<section class="join" id="join">
+  <div class="wrap">
+    <p class="mono eyebrow rv">參與這個計畫</p>
+    <h2 class="rv">這座橋，<b>需要兩端的人</b></h2>
+    <p class="join__lead rv">這個計畫要連結的，是企業、教會、創業者與跨文化行動者。如果你在其中任何一端，這裡有你的位置。</p>
+
+    <div class="join__grid">
+      <div class="roles rv">
+        <div class="role"><span class="k">A</span><div><h4>建商 · 建築師 · 代銷團隊</h4><p>手上有都更案或新建案，想同時解決 ESG 評級與容積效益。我們提供材料、法規與 AI 精算的整合提案。</p></div></div>
+        <div class="role"><span class="k">B</span><div><h4>精品品牌 · 高端農產生產者</h4><p>深受仿冒與溯源之苦，需要一套無法被複製的鑑價與防偽基礎建設。</p></div></div>
+        <div class="role"><span class="k">C</span><div><h4>實驗室 · 投資人 · 產學單位</h4><p>對常溫微生物製程與綠色材料有興趣，願意參與第三方驗證、專利授權或天使投資。</p></div></div>
+        <div class="role"><span class="k">D</span><div><h4>教會 · 企業家 · 跨文化行動者</h4><p>相信技術該承載使命。想把生命故事、見證與異象，用 AI 記錄、組織並傳承下去。</p></div></div>
+      </div>
+
+      <form id="joinForm" novalidate>
+        <div class="form__head">
+          <h3>留下你的位置</h3>
+          <p>填寫後我們會將你的意向整理成一段文字，你可以直接帶著它私訊聯繫。</p>
+        </div>
+
+        <div class="field">
+          <label for="f-name">姓名 <span class="req">*</span></label>
+          <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="您的稱呼">
+          <p class="err" id="e-name">請留下您的稱呼。</p>
+        </div>
+        <div class="field">
+          <label for="f-org">單位 ／ 公司</label>
+          <input id="f-org" name="org" type="text" autocomplete="organization" placeholder="選填">
+        </div>
+        <div class="field">
+          <label for="f-contact">聯絡方式 <span class="req">*</span></label>
+          <input id="f-contact" name="contact" type="text" required placeholder="Email 或手機">
+          <p class="err" id="e-contact">請留下 Email 或電話，我們才能回覆您。</p>
+        </div>
+        <div class="field">
+          <label for="f-role">您的身分 <span class="req">*</span></label>
+          <select id="f-role" name="role" required>
+            <option value="">請選擇⋯</option>
+            <option>A · 建商／建築師／代銷</option>
+            <option>B · 精品品牌／高端農產</option>
+            <option>C · 實驗室／投資人／產學</option>
+            <option>D · 教會／企業家／跨文化行動者</option>
+            <option>E · 其他，我只是想更了解</option>
+          </select>
+          <p class="err" id="e-role">請選擇一個最接近的身分。</p>
+        </div>
+        <div class="field">
+          <label for="f-msg">你想一起做什麼？</label>
+          <textarea id="f-msg" name="msg" rows="3" placeholder="一兩句話就好"></textarea>
+        </div>
+
+        <p class="form__note">送出後將為你整理一段可直接複製的自我介紹，並開啟 Facebook 私訊視窗。你的資料不會被送到任何第三方伺服器。</p>
+        <button type="submit" class="btn btn--solid form__submit" id="submitBtn">送出並前往聯繫</button>
+
+        <div class="sent" id="sentPanel" role="status">
+          <h3>已為你整理好了</h3>
+          <p id="sentMsg">你的意向摘要已複製到剪貼簿。點下方按鈕前往 Facebook，貼上並送出即可。</p>
+          <p style="margin-block:1.4rem 0"><a class="btn btn--solid" href="https://www.facebook.com/qiu.yu.rong.242129" target="_blank" rel="noopener">前往 Facebook 聯繫邱裕榮</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot__grid">
+    <div>
+      <p class="foot__mark" style="margin:0 0 .7rem">當 AI 遇上<span>農業</span></p>
+      <p class="foot__tag">從媒體到使命的跨界行者 · 邱裕榮</p>
+    </div>
+    <div class="foot__links">
+      <a href="https://www.facebook.com/qiu.yu.rong.242129" target="_blank" rel="noopener">Facebook</a>
+      <a href="#join">參與計畫</a>
+      <a href="#top">回到頂端</a>
+    </div>
+    <p class="foot__fine">本頁內容整理自《當農業遇上 AI：跨界賦能與商業重構》戰略白皮書，以及邱裕榮先生的公開資料。文中所述之技術指標、法規獎勵與商業效益，為白皮書所載之主張與規劃，實際成果需視個案條件、第三方驗證與主管機關審核而定。<br>© 2026 當 AI 遇上農業</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* nav border on scroll */
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('is-stuck', window.scrollY > 40); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* reveal */
+  var rvs = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduce){
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -12% 0px',threshold:.08});
+    rvs.forEach(function(el,i){ el.style.transitionDelay = (Math.min(i%4,3)*60)+'ms'; ro.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* core-sample depth readout */
+  var layers = document.querySelectorAll('.layer');
+  var depthEl = document.getElementById('depth');
+  var labelEl = document.getElementById('depthLabel');
+  var scan = document.getElementById('scan');
+  if(layers.length && 'IntersectionObserver' in window){
+    var lo = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          layers.forEach(function(l){ l.classList.remove('is-active'); });
+          e.target.classList.add('is-active');
+          var n = parseInt(e.target.getAttribute('data-layer'),10);
+          depthEl.textContent = '0'+n;
+          labelEl.textContent = e.target.getAttribute('data-label');
+          if(scan) scan.style.top = (((n-0.5)/layers.length)*100)+'%';
+        }
+      });
+    },{rootMargin:'-42% 0px -42% 0px',threshold:0});
+    layers.forEach(function(l){ lo.observe(l); });
+  }
+
+  /* form */
+  var form = document.getElementById('joinForm');
+  var checks = [
+    {id:'f-name', f:'e-name', test:function(v){ return v.trim().length>0; }},
+    {id:'f-contact', f:'e-contact', test:function(v){ return v.trim().length>=5; }},
+    {id:'f-role', f:'e-role', test:function(v){ return v!==''; }}
+  ];
+  function validate(c, showErr){
+    var el = document.getElementById(c.id);
+    var ok = c.test(el.value);
+    if(showErr) el.closest('.field').classList.toggle('has-err', !ok);
+    else if(ok) el.closest('.field').classList.remove('has-err');
+    return ok;
+  }
+  checks.forEach(function(c){
+    var el = document.getElementById(c.id);
+    el.addEventListener('blur', function(){ validate(c, true); });
+    el.addEventListener('input', function(){ validate(c, false); });
+    el.addEventListener('change', function(){ validate(c, false); });
+  });
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var allOk = true, firstBad = null;
+    checks.forEach(function(c){
+      var ok = validate(c, true);
+      if(!ok && !firstBad) firstBad = document.getElementById(c.id);
+      allOk = allOk && ok;
+    });
+    if(!allOk){ if(firstBad) firstBad.focus(); return; }
+
+    var v = function(id){ return (document.getElementById(id).value||'').trim(); };
+    var summary =
+      '您好，我在「當 AI 遇上農業」頁面看到這個計畫，想進一步了解與參與。\n\n' +
+      '姓名：' + v('f-name') + '\n' +
+      (v('f-org') ? '單位：' + v('f-org') + '\n' : '') +
+      '聯絡方式：' + v('f-contact') + '\n' +
+      '身分：' + v('f-role') + '\n' +
+      (v('f-msg') ? '想一起做的事：' + v('f-msg') + '\n' : '');
+
+    var finish = function(copied){
+      document.getElementById('sentMsg').textContent = copied
+        ? '你的意向摘要已複製到剪貼簿。點下方按鈕前往 Facebook，貼上並送出即可。'
+        : '請複製下方內容後，前往 Facebook 私訊給邱裕榮：\n\n' + summary;
+      form.classList.add('is-sent');
+      document.getElementById('sentPanel').scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
+    };
+
+    var btn = document.getElementById('submitBtn');
+    btn.setAttribute('aria-busy','true');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(summary).then(function(){ finish(true); }, function(){ finish(false); });
+    } else { finish(false); }
+  });
+})();
+</script>
+<!--
+  NOTE FOR THE SITE OWNER:
+  The join form is intentionally front-end only — nothing is posted to a server.
+  To collect submissions directly, point the <form> at your own endpoint
+  (Formspree / Google Apps Script / your CRM) and remove the clipboard fallback in the submit handler.
+-->
+</body>
+</html>
